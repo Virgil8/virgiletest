@@ -1147,31 +1147,42 @@ body.nav-open .main-nav {
     margin:0;
   }
 
-  /* CONTENEUR DES BOUTONS */
-  .g-right {
-    position:relative;
-    z-index:2;
+ /* CONTENEUR DES BOUTONS */
+.g-right {
+  position:relative;
+  z-index:2;
 
-    display:grid;
-    gap:.75rem;
+  width:100%;
+  margin:0 auto;
+  padding:0 0 1rem 0;
 
-    width:100%;
-    max-width:480px;        /* largeur visuelle propre */
-    margin:0 auto;          /* >>> CENTRAGE HORIZONTAL ABSOLU <<< */
+  /* on ne force PLUS grid ici */
+  display:block;
+}
 
-    padding:0 0 1rem 0;
-  }
+/* largeur réelle des boutons */
+.g-right-inner {
+  display:grid;
+  gap:.75rem;
 
-  /* CHAQUE BOUTON */
-  .g-right .btn,
-  .g-right .btn-wide {
-    width:100%;
-    max-width:100%;
-    min-width:0;
-    justify-content:center;
-    border-radius:12px;
-    margin:0;
-  }
+  /* largeur contrôlée, comme le texte g-left */
+  max-width:480px;
+  width:100%;
+
+  /* et là, magie : marges égales gauche / droite */
+  margin:0 auto;
+}
+
+/* CHAQUE BOUTON prend toute la largeur dispo DANS le wrapper */
+.g-right-inner .btn,
+.g-right-inner .btn-wide {
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  justify-content:center;
+  border-radius:12px;
+  margin:0;
+}
 
   /* PANIER MOBILE */
   .cart-layout { gap:1.25rem; }
