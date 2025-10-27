@@ -952,7 +952,7 @@ body.nav-open .main-nav {
     backdrop-filter:none;
   }
 
-  /* ETAT MENU OUVERT -> on RE-force full noir même sur Safari iOS */
+  /* MENU OUVERT -> full noir forcé */
   body.nav-open .main-nav {
     position:fixed;
     inset:0;
@@ -1005,7 +1005,7 @@ body.nav-open .main-nav {
     margin:0 auto;
   }
 
-  /* GLOBAL PADDING OFF, on laisse les cards gérer leur marge */
+  /* GLOBAL PADDING OFF sur les pages */
   .product-page,
   .cart-page {
     padding-left:0;
@@ -1087,21 +1087,20 @@ body.nav-open .main-nav {
     gap:.5rem;
   }
 
- @media (max-width:900px){
-
-  /* ... tout le reste de tes styles mobile reste inchangé ... */
-
   /* ===== BANNIÈRE GARANTIE — mobile ===== */
   .guarantee-banner {
-    /* on annule le layout desktop */
-    display: block;
-    padding: 1rem 1rem 1.25rem;
+    /* on annule le flex desktop */
+    display:block;
+    padding:1rem 1rem 1.25rem;
     border-radius:12px;
-    width: calc(100% - 2rem);
+    width:calc(100% - 2rem);
     max-width:600px;
     margin:2rem auto 0 auto;
     position:relative;
     overflow:hidden;
+    box-shadow:var(--shadow-card);
+    background:var(--bg-card);
+    border:1px solid var(--border-card);
   }
 
   .guarantee-banner::before {
@@ -1116,7 +1115,7 @@ body.nav-open .main-nav {
     position:relative;
     z-index:2;
     max-width:480px;
-    margin:0 auto 1rem auto; /* centre le bloc texte aussi */
+    margin:0 auto 1rem auto; /* centre le bloc texte */
     color:var(--text-primary);
   }
 
@@ -1147,23 +1146,17 @@ body.nav-open .main-nav {
     margin:0;
   }
 
-  /* >>> LE BLOC BOUTONS ICI <<< */
   .g-right {
     position:relative;
     z-index:2;
 
-    /* on met les boutons en pile */
     display:grid;
     gap:.75rem;
 
-    /* largeur contrôlée */
     width:100%;
     max-width:480px;
+    margin:0 auto 0 auto;   /* <--- centre le bloc boutons */
 
-    /* ET SURTOUT on le centre parfaitement dans la carte */
-    margin:0 auto 0 auto;
-
-    /* pas de padding latéral qui pousse à droite */
     padding:0 0 1rem 0;
   }
 
@@ -1176,7 +1169,6 @@ body.nav-open .main-nav {
     border-radius:12px;
     margin:0;
   }
-}
 
   /* PANIER MOBILE */
   .cart-layout { gap:1.25rem; }
