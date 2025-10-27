@@ -890,49 +890,52 @@ body.nav-open { overflow:hidden; }
   opacity:.3;
 }
 
-/* RESPONSIVE */
 @media (max-width:900px){
 
-  /* GRID STACK: tout en colonne */
+  /* ===== GRID STACK: tout en colonne ===== */
   .hero-inner,
   .product-layout,
   .cart-layout {
     grid-template-columns:1fr;
   }
 
-  /* NAV OVERLAY MOBILE (fond noir plein, menu clair) */
+  /* ===== NAV OVERLAY MOBILE ===== */
   .main-nav {
     position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.95); /* opaque, plus de PC qui passe derrière */
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    padding:5rem 2rem 2rem;
+    left:0;
+    top:0;
+    width:100%;
+    height:100vh;               /* prend tout l'écran */
+    background:#000;            /* noir pur = plus de violet transparent */
+    padding:5rem 1.5rem 2rem;
     flex-direction:column;
     align-items:flex-start;
     gap:0;
     transform:translateX(100%);
     transition:transform .22s ease;
-    box-shadow:-30px 0 80px rgba(0,0,0,0.9);
-    z-index:9999;
+    z-index:10000;              /* passe DEVANT le contenu */
+    overflow-y:auto;
+    box-shadow:0 40px 120px rgba(0,0,0,0.9);
   }
-  .main-nav.open { transform:translateX(0); }
+
   .main-nav .nav-link {
     width:100%;
     padding:1rem 0;
-    font-size:1.1rem;
+    font-size:1.2rem;
     font-weight:500;
     color:var(--text-primary);
     border-bottom:1px solid rgba(255,255,255,0.07);
   }
-  .main-nav .nav-link:last-child { border-bottom:0; }
+  .main-nav .nav-link:last-child {
+    border-bottom:0;
+  }
 
   /* HEADER COMPACT MOBILE */
   .burger { display:block; }
   .cart-label { display:none; }
   .cart-btn { padding:0; }
 
-  /* HERO MOBILE */
+  /* ===== HERO MOBILE ===== */
   .hero {
     padding:2rem 0 2rem;
   }
@@ -957,28 +960,33 @@ body.nav-open { overflow:hidden; }
     margin:0 auto;
   }
 
-  /* PADDING GLOBAL SUR PRODUIT & PANIER */
+  /* ===== PADDING GLOBAL =====
+     On enlève le padding latéral massif sur les pages,
+     et on va donner la respiration aux cartes elles-mêmes. */
   .product-page,
   .cart-page {
-    padding-left:1.25rem;
-    padding-right:1.25rem;
+    padding-left:0;
+    padding-right:0;
   }
 
-  /* LAYOUT PRODUIT MOBILE */
+  /* ===== LAYOUT PRODUIT MOBILE ===== */
   .product-layout {
     gap:1.5rem;
     margin-bottom:2rem;
   }
 
-  /* LES GROS BLOCS deviennent des cartes centrées et respirent */
+  /* ===== CARTES CENTRÉES AVEC RESPIRATION =====
+     -> Elles ne vont plus bord à bord
+     -> Elles respirent comme la card hero de la home */
   .product-gallery,
   .product-info,
-  .cart-items,
-  .summary-card,
-  .trust-badges,
   .spec-card,
   .trust-card,
-  .guarantee-banner {
+  .guarantee-banner,
+  .cart-items,
+  .summary-card,
+  .trust-badges {
+    width:calc(100% - 2rem);     /* marge visuelle gauche/droite */
     max-width:600px;
     margin-left:auto;
     margin-right:auto;
@@ -998,9 +1006,10 @@ body.nav-open { overflow:hidden; }
     height:56px;
   }
 
-  /* INFO PRODUIT (bloc prix, CTA...) */
+  /* INFO PRODUIT */
   .product-info {
     gap:.8rem;
+    padding:0 1rem; /* petit coussin interne pour le texte */
   }
   .product-title {
     font-size:1.3rem;
@@ -1060,7 +1069,7 @@ body.nav-open { overflow:hidden; }
     gap:.5rem;
   }
 
-  /* BANNIÈRE GARANTIE MOBILE */
+  /* BANNIÈRE GARANTIE */
   .guarantee-banner {
     flex-direction:column;
     align-items:flex-start;
@@ -1090,7 +1099,7 @@ body.nav-open { overflow:hidden; }
     width:100%;
   }
 
-  /* PANIER MOBILE */
+  /* ===== PANIER MOBILE ===== */
   .cart-layout {
     gap:1.25rem;
   }
@@ -1166,7 +1175,7 @@ body.nav-open { overflow:hidden; }
     gap:.5rem;
   }
 
-  /* FOOTER MOBILE */
+  /* ===== FOOTER MOBILE ===== */
   .site-footer {
     margin-top:2.5rem;
   }
