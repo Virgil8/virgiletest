@@ -1100,37 +1100,39 @@ body.nav-open .main-nav {
     gap:.5rem;
   }
 
-   /* BANNIÈRE GARANTIE — mobile FINAL */
+  /* BANNIÈRE GARANTIE — version mobile centrée propre */
   .guarantee-banner {
     display: grid;
+    /* 1 seule colonne, on empile le texte puis les boutons */
     grid-template-columns: 1fr;
     gap: 1rem;
 
+    /* style visuel de la carte */
     border-radius: 12px;
     overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     box-shadow: var(--shadow-card);
 
+    /* on contrôle la largeur max du contenu interne comme la card produit */
     width: calc(100% - 2rem);
     max-width: 600px;
     margin: 2rem auto 0 auto;
-
-    /* cette marge interne = la “colonne” */
     padding: 1rem 1rem 1.25rem;
     position: relative;
   }
 
+  /* garde l'effet glow vert déjà présent (pseudo-élément ::before) */
+
   .g-left {
+    /* le texte + badge */
     display: grid;
     gap: .75rem;
+    max-width: 480px;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
-
-    /* PAS de padding supplémentaire ici */
-    padding: 0;
   }
 
   .g-badge {
@@ -1143,7 +1145,6 @@ body.nav-open .main-nav {
     border: 1px solid rgba(255,255,255,0.1);
     color: var(--text-primary);
     margin-bottom: .25rem;
-    max-width: fit-content;
   }
 
   .g-title {
@@ -1161,21 +1162,22 @@ body.nav-open .main-nav {
     margin: 0;
   }
 
+    /* groupe des boutons dans la bannière garantie */
   .g-right {
     display: grid;
     gap: .75rem;
+    max-width: 480px;       /* largeur de contenu contrôlée */
     width: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    z-index: 2;
+    margin-left: auto;      /* <-- centre le bloc dans la carte */
+    margin-right: auto;     /* <-- centre le bloc dans la carte */
+    padding: 0 1rem 1rem;   /* garde un peu de marge interne pour respirer */
   }
 
-  /* >>> C'EST ÇA QUI FIXE L'ALIGNEMENT VISUEL <<< */
   .g-right .btn,
   .g-right .btn-wide {
-    width: 100%;           /* le bouton prend 100% de la colonne texte */
-    min-width: 0 !important;/* écrase le min-width:200px de .btn-wide */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: center;
     border-radius: 12px;
     margin: 0;
