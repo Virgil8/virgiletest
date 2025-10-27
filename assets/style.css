@@ -1108,15 +1108,27 @@ body.nav-open .main-nav {
     line-height:1.4;
     gap:.5rem;
   }
-
-/* ===== BANNIÈRE GARANTIE MOBILE ===== */
+/* ============================
+   GUARANTEE BANNER (desktop)
+   ============================ */
 .guarantee-banner {
-  display:block;
-  padding:1.25rem 1rem 1.5rem;
-  border-radius:12px;
-  max-width:600px;
-  width:calc(100% - 2rem);
-  margin:2rem auto 0 auto;
+  margin-top:2rem;
+  border-radius:14px;
+  background:var(--bg-card);
+  border:1px solid var(--border-card);
+  box-shadow:var(--shadow-card);
+
+  /* pleine largeur visuelle de la page produit */
+  width:100%;
+  max-width:var(--container-max);
+  padding:2rem;
+
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:2rem;
+
   position:relative;
   overflow:hidden;
 }
@@ -1125,59 +1137,145 @@ body.nav-open .main-nav {
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)60%);
+  background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)70%);
   mix-blend-mode:screen;
 }
 
 .g-left {
   position:relative;
   z-index:2;
-  max-width:480px;
-  width:100%;
-  margin:0 auto 1rem auto;
-  text-align:left;
+  flex:1 1 60%;
+  max-width:600px;
+  color:var(--text-primary);
+}
+
+.g-badge {
+  display:inline-block;
+  font-size:.8rem;
+  font-weight:500;
+  padding:.4rem .7rem;
+  border-radius:var(--radius-sm);
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--text-primary);
+  margin-bottom:.6rem;
+}
+
+.g-title {
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--text-primary);
+  margin:0 0 .5rem 0;
+  line-height:1.3;
+}
+
+.g-desc {
+  font-size:.9rem;
+  color:var(--text-dim);
+  line-height:1.4;
+  margin:0 0 1rem 0;
 }
 
 .g-right {
   position:relative;
   z-index:2;
-  width:100%;
-  margin:0;
-  display:block;
+  flex:1 1 40%;
+  min-width:220px;
+  display:flex;
+  justify-content:center;
 }
 
-/* >>> le conteneur boutons qu'on aligne manuellement <<< */
 .g-right-inner {
   display:flex;
   flex-direction:column;
   gap:.75rem;
-
-  /* largeur contrôlée comme .g-left */
-  max-width:480px;
-  width:calc(100% - 2rem); /* = même respiration visuelle que le texte */
-
-  /* TRUC IMPORTANT :
-     pas de padding interne, on pose le bloc lui-même */
-  padding:0;
-
-  /* et là on le pousse légèrement vers la gauche
-     pour qu'il s'aligne optiquement avec le texte/h1 */
-  margin:0 auto 0 0.5rem;
-  /* explication :
-     - auto à droite => le bloc peut encore grandir normalement
-     - 0.5rem à gauche => on "rentre" le bloc vers la gauche
-     Ajustable si tu veux encore plus collé : passe 0.5rem -> 0.25rem */
+  width:100%;
+  max-width:400px;
+  margin:0 auto;
 }
 
 .g-right-inner .btn,
 .g-right-inner .btn-wide {
   width:100%;
-  max-width:100%;
   min-width:0;
+  max-width:100%;
   justify-content:center;
   border-radius:12px;
   margin:0;
 }
+  /* ===== BANNIÈRE GARANTIE MOBILE ===== */
+  .guarantee-banner {
+    display:block;
+    padding:1.25rem 1rem 1.5rem;
+    border-radius:12px;
+
+    /* elle redevient une carte centrée mobile */
+    width:calc(100% - 2rem);
+    max-width:600px;
+    margin:2rem auto 0 auto;
+
+    position:relative;
+    overflow:hidden;
+  }
+
+  .guarantee-banner::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)60%);
+    mix-blend-mode:screen;
+  }
+
+  .g-left {
+    position:relative;
+    z-index:2;
+    max-width:480px;
+    width:100%;
+    margin:0 auto 1rem auto;
+    text-align:left;
+  }
+
+  .g-right {
+    position:relative;
+    z-index:2;
+    width:100%;
+    display:block;
+    /* pas de margin auto ici, on va gérer l'offset dans le inner */
+    margin:0;
+  }
+
+  /* CONTENEUR DES BOUTONS SUR MOBILE
+     -> même largeur visuelle que le texte
+     -> décalé légèrement vers la gauche pour matcher le début des lignes de texte
+  */
+  .g-right-inner {
+    display:flex;
+    flex-direction:column;
+    gap:.75rem;
+
+    max-width:480px;
+    width:calc(100% - 2rem); /* respiration gauche/droite identique à .g-left */
+
+    /* TRÈS IMPORTANT :
+       margin-left = léger offset visuel demandé
+       margin-right = auto pour pas déborder à droite
+    */
+    margin-left:0.5rem;
+    margin-right:auto;
+
+    /* pas de padding interne pour pas re-décaler */
+    padding:0;
+  }
+
+  .g-right-inner .btn,
+  .g-right-inner .btn-wide {
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    justify-content:center;
+    border-radius:12px;
+    margin:0;
+  }
   /* PANIER MOBILE */
   .cart-layout { gap:1.25rem; }
   .cart-items { padding:1rem; }
