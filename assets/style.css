@@ -117,7 +117,10 @@ body.nav-open { overflow:hidden; }
   text-decoration:none;
   transition:color .15s;
 }
-.nav-link.active,.nav-link:hover { color:var(--text-primary); }
+.nav-link.active,
+.nav-link:hover {
+  color:var(--text-primary);
+}
 
 /* HEADER ACTIONS */
 .header-cta-group {
@@ -443,7 +446,8 @@ body.nav-open { overflow:hidden; }
   cursor:pointer;
   opacity:.6;
 }
-.thumb.active,.thumb:hover {
+.thumb.active,
+.thumb:hover {
   opacity:1;
   border-color:var(--accent);
   box-shadow:0 20px 60px rgba(107,107,255,0.4);
@@ -572,17 +576,17 @@ body.nav-open { overflow:hidden; }
   background:var(--bg-card);
   border:1px solid var(--border-card);
   box-shadow:var(--shadow-card);
+
+  /* pleine largeur du container produit */
+  width:100%;
   padding:2rem;
+
   display:flex;
-  flex-wrap:nowrap;
   align-items:flex-start;
   justify-content:space-between;
   gap:2rem;
   position:relative;
   overflow:hidden;
-  max-width:1100px;
-  margin-left:auto;
-  margin-right:auto;
 }
 .guarantee-banner::before {
   content:"";
@@ -594,8 +598,8 @@ body.nav-open { overflow:hidden; }
 .g-left {
   position:relative;
   z-index:2;
-  flex:1 1 60%;
-  max-width:600px;
+  flex:1 1 auto;
+  max-width:800px;
   color:var(--text-primary);
 }
 .g-badge {
@@ -625,18 +629,17 @@ body.nav-open { overflow:hidden; }
 .g-right {
   position:relative;
   z-index:2;
-  flex:1 1 40%;
+  flex:0 0 320px;
   min-width:220px;
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
 }
 .g-right-inner {
   display:flex;
   flex-direction:column;
   gap:.75rem;
   width:100%;
-  max-width:400px;
-  margin:0 auto;
+  max-width:320px;
 }
 .g-right-inner .btn,
 .g-right-inner .btn-wide {
@@ -1108,108 +1111,13 @@ body.nav-open .main-nav {
     line-height:1.4;
     gap:.5rem;
   }
-/* ============================
-   GUARANTEE BANNER (desktop)
-   ============================ */
-.guarantee-banner {
-  margin-top:2rem;
-  border-radius:14px;
-  background:var(--bg-card);
-  border:1px solid var(--border-card);
-  box-shadow:var(--shadow-card);
 
-  /* pleine largeur visuelle de la page produit */
-  width:100%;
-  max-width:var(--container-max);
-  padding:2rem;
-
-  display:flex;
-  flex-wrap:nowrap;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:2rem;
-
-  position:relative;
-  overflow:hidden;
-}
-
-.guarantee-banner::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)70%);
-  mix-blend-mode:screen;
-}
-
-.g-left {
-  position:relative;
-  z-index:2;
-  flex:1 1 60%;
-  max-width:600px;
-  color:var(--text-primary);
-}
-
-.g-badge {
-  display:inline-block;
-  font-size:.8rem;
-  font-weight:500;
-  padding:.4rem .7rem;
-  border-radius:var(--radius-sm);
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.1);
-  color:var(--text-primary);
-  margin-bottom:.6rem;
-}
-
-.g-title {
-  font-size:1.15rem;
-  font-weight:600;
-  color:var(--text-primary);
-  margin:0 0 .5rem 0;
-  line-height:1.3;
-}
-
-.g-desc {
-  font-size:.9rem;
-  color:var(--text-dim);
-  line-height:1.4;
-  margin:0 0 1rem 0;
-}
-
-.g-right {
-  position:relative;
-  z-index:2;
-  flex:1 1 40%;
-  min-width:220px;
-  display:flex;
-  justify-content:center;
-}
-
-.g-right-inner {
-  display:flex;
-  flex-direction:column;
-  gap:.75rem;
-  width:100%;
-  max-width:400px;
-  margin:0 auto;
-}
-
-.g-right-inner .btn,
-.g-right-inner .btn-wide {
-  width:100%;
-  min-width:0;
-  max-width:100%;
-  justify-content:center;
-  border-radius:12px;
-  margin:0;
-}
   /* ===== BANNIÈRE GARANTIE MOBILE ===== */
   .guarantee-banner {
     display:block;
     padding:1.25rem 1rem 1.5rem;
     border-radius:12px;
 
-    /* elle redevient une carte centrée mobile */
     width:calc(100% - 2rem);
     max-width:600px;
     margin:2rem auto 0 auto;
@@ -1240,30 +1148,21 @@ body.nav-open .main-nav {
     z-index:2;
     width:100%;
     display:block;
-    /* pas de margin auto ici, on va gérer l'offset dans le inner */
     margin:0;
   }
 
-  /* CONTENEUR DES BOUTONS SUR MOBILE
-     -> même largeur visuelle que le texte
-     -> décalé légèrement vers la gauche pour matcher le début des lignes de texte
-  */
+  /* conteneur boutons mobile */
   .g-right-inner {
     display:flex;
     flex-direction:column;
     gap:.75rem;
 
     max-width:480px;
-    width:calc(100% - 2rem); /* respiration gauche/droite identique à .g-left */
+    width:calc(100% - 2rem);
 
-    /* TRÈS IMPORTANT :
-       margin-left = léger offset visuel demandé
-       margin-right = auto pour pas déborder à droite
-    */
     margin-left:0.5rem;
     margin-right:auto;
 
-    /* pas de padding interne pour pas re-décaler */
     padding:0;
   }
 
@@ -1276,6 +1175,7 @@ body.nav-open .main-nav {
     border-radius:12px;
     margin:0;
   }
+
   /* PANIER MOBILE */
   .cart-layout { gap:1.25rem; }
   .cart-items { padding:1rem; }
