@@ -931,14 +931,14 @@ body.nav-open .main-nav {
     grid-template-columns:1fr;
   }
 
-  /* NAV OVERLAY MOBILE (état initial, avant ouverture) */
+  /* NAV OVERLAY MOBILE (fermé par défaut) */
   .main-nav {
     position:fixed;
     left:0;
     top:0;
     width:100%;
     height:100vh;
-    background:#000; /* base noir */
+    background:#000;
     padding:5rem 1.5rem 2rem;
     flex-direction:column;
     align-items:flex-start;
@@ -952,7 +952,7 @@ body.nav-open .main-nav {
     backdrop-filter:none;
   }
 
-  /* MENU OUVERT -> full noir forcé */
+  /* NAV OVERLAY MOBILE (ouvert) */
   body.nav-open .main-nav {
     position:fixed;
     inset:0;
@@ -985,9 +985,7 @@ body.nav-open .main-nav {
   .cart-btn { padding:0; }
 
   /* HERO MOBILE */
-  .hero {
-    padding:2rem 0 2rem;
-  }
+  .hero { padding:2rem 0 2rem; }
   .hero-inner { gap:2rem; }
   .hero-title {
     font-size:1.9rem;
@@ -1005,20 +1003,20 @@ body.nav-open .main-nav {
     margin:0 auto;
   }
 
-  /* GLOBAL PADDING OFF sur les pages */
+  /* GLOBAL PADDING OFF, on laisse les cards respirer elles-mêmes */
   .product-page,
   .cart-page {
     padding-left:0;
     padding-right:0;
   }
 
-  /* PRODUIT MOBILE LAYOUT */
+  /* PRODUIT LAYOUT MOBILE */
   .product-layout {
     gap:1.5rem;
     margin-bottom:2rem;
   }
 
-  /* CARDS CENTRÉES AVEC MARGE LATÉRALE */
+  /* CARTES CENTRÉES (marges latérales 1rem) */
   .product-gallery,
   .product-info,
   .spec-card,
@@ -1058,7 +1056,7 @@ body.nav-open .main-nav {
     min-height:44px;
   }
 
-  /* SPECS */
+  /* SPECS MOBILE */
   .product-specs {
     grid-template-columns:1fr;
     gap:1.25rem;
@@ -1087,20 +1085,22 @@ body.nav-open .main-nav {
     gap:.5rem;
   }
 
-  /* ===== BANNIÈRE GARANTIE — mobile ===== */
+  /* ============================
+     BANNIÈRE GARANTIE (mobile)
+     ============================ */
   .guarantee-banner {
-    /* on annule le flex desktop */
+    /* ON ANNULE LE FLEX DESKTOP */
     display:block;
-    padding:1rem 1rem 1.25rem;
+    justify-content:unset;
+    flex-wrap:unset;
+
+    /* style visuel */
     border-radius:12px;
-    width:calc(100% - 2rem);
-    max-width:600px;
-    margin:2rem auto 0 auto;
+    padding:1rem 1rem 1.25rem;
     position:relative;
     overflow:hidden;
-    box-shadow:var(--shadow-card);
-    background:var(--bg-card);
-    border:1px solid var(--border-card);
+
+    /* déjà centrée via width:calc(100% - 2rem) plus haut */
   }
 
   .guarantee-banner::before {
@@ -1115,6 +1115,7 @@ body.nav-open .main-nav {
     position:relative;
     z-index:2;
     max-width:480px;
+    width:100%;
     margin:0 auto 1rem auto; /* centre le bloc texte */
     color:var(--text-primary);
   }
@@ -1146,6 +1147,7 @@ body.nav-open .main-nav {
     margin:0;
   }
 
+  /* CONTENEUR DES BOUTONS */
   .g-right {
     position:relative;
     z-index:2;
@@ -1154,12 +1156,13 @@ body.nav-open .main-nav {
     gap:.75rem;
 
     width:100%;
-    max-width:480px;
-    margin:0 auto 0 auto;   /* <--- centre le bloc boutons */
+    max-width:480px;        /* largeur visuelle propre */
+    margin:0 auto;          /* >>> CENTRAGE HORIZONTAL ABSOLU <<< */
 
     padding:0 0 1rem 0;
   }
 
+  /* CHAQUE BOUTON */
   .g-right .btn,
   .g-right .btn-wide {
     width:100%;
