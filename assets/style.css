@@ -1121,13 +1121,19 @@ body.nav-open .main-nav {
     line-height:1.4;
     margin-bottom:1rem;
   }
+  /* Alignement parfait des boutons "Ajouter au panier" / "Voir le panier" dans la bannière garantie */
   .g-right {
-    width:100%;
-    min-width:0;
+    width: 100%;
+    display: grid;
+    gap: .75rem;           /* espace vertical entre les deux boutons */
   }
+
+  .g-right .btn,
   .g-right .btn-wide {
-    min-width:0;
-    width:100%;
+    width: 100%;           /* le bouton prend toute la largeur de la carte */
+    max-width: 100%;
+    min-width: 0;          /* on annule le min-width:200px qui cassait l'alignement */
+    justify-content: center;
   }
 
   /* ===== PANIER MOBILE ===== */
