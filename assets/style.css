@@ -1154,8 +1154,8 @@ body.nav-open .main-nav {
     max-width:480px;
     width:100%;
 
-    /* le point clé : padding égal gauche/droite */
-    padding:0 1rem;
+    /* AVANT: padding:0 1rem;  ->  APRES: pas de padding gauche */
+    padding:0 1rem 0 0;
     box-sizing:border-box;
 
     margin:0 auto;
