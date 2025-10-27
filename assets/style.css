@@ -563,63 +563,89 @@ body.nav-open { overflow:hidden; }
   line-height:1.4;
 }
 
-/* GUARANTEE BANNER */
+/* ============================
+   GUARANTEE BANNER (desktop)
+   ============================ */
 .guarantee-banner {
   margin-top:2rem;
-  border-radius:var(--radius-lg);
+  border-radius:14px;
   background:var(--bg-card);
   border:1px solid var(--border-card);
   box-shadow:var(--shadow-card);
-  padding:1rem;
+  padding:2rem;
   display:flex;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
+  align-items:flex-start;
   justify-content:space-between;
-  gap:1rem;
+  gap:2rem;
   position:relative;
   overflow:hidden;
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
 }
 .guarantee-banner::before {
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)60%);
+  background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)70%);
   mix-blend-mode:screen;
 }
 .g-left {
-  max-width:600px;
   position:relative;
   z-index:2;
+  flex:1 1 60%;
+  max-width:600px;
+  color:var(--text-primary);
 }
 .g-badge {
   display:inline-block;
-  font-size:.7rem;
+  font-size:.8rem;
   font-weight:500;
-  padding:.4rem .6rem;
+  padding:.4rem .7rem;
   border-radius:var(--radius-sm);
   background:rgba(255,255,255,0.07);
   border:1px solid rgba(255,255,255,0.1);
   color:var(--text-primary);
-  margin-bottom:.5rem;
+  margin-bottom:.6rem;
 }
 .g-title {
-  font-size:1rem;
+  font-size:1.15rem;
   font-weight:600;
   color:var(--text-primary);
-  margin-bottom:.5rem;
+  margin:0 0 .5rem 0;
   line-height:1.3;
 }
 .g-desc {
-  font-size:.85rem;
+  font-size:.9rem;
   color:var(--text-dim);
   line-height:1.4;
-  margin-bottom:1rem;
+  margin:0 0 1rem 0;
 }
 .g-right {
-  display:grid;
-  gap:.6rem;
   position:relative;
   z-index:2;
+  flex:1 1 40%;
   min-width:220px;
+  display:flex;
+  justify-content:center;
+}
+.g-right-inner {
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  width:100%;
+  max-width:400px;
+  margin:0 auto;
+}
+.g-right-inner .btn,
+.g-right-inner .btn-wide {
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  justify-content:center;
+  border-radius:12px;
+  margin:0;
 }
 
 /* CART PAGE */
@@ -910,13 +936,11 @@ body.nav-open .header-inner {
   padding:1rem 1.25rem 0;
   gap:1rem;
 }
-/* on masque brand/panier derrière le menu */
 body.nav-open .cart-btn,
 body.nav-open .brand {
   opacity:0;
   pointer-events:none;
 }
-/* forcer la nav visible */
 body.nav-open .main-nav {
   transform:translateX(0) !important;
 }
@@ -1003,7 +1027,7 @@ body.nav-open .main-nav {
     margin:0 auto;
   }
 
-  /* GLOBAL PADDING OFF, on laisse les cards respirer elles-mêmes */
+  /* GLOBAL PADDING OFF */
   .product-page,
   .cart-page {
     padding-left:0;
@@ -1016,7 +1040,7 @@ body.nav-open .main-nav {
     margin-bottom:2rem;
   }
 
-  /* CARTES CENTRÉES (marges latérales 1rem) */
+  /* CARTES CENTRÉES */
   .product-gallery,
   .product-info,
   .spec-card,
@@ -1085,18 +1109,14 @@ body.nav-open .main-nav {
     gap:.5rem;
   }
 
-  /* ============================
-     BANNIÈRE GARANTIE (mobile)
-     ============================ */
+  /* ===== BANNIÈRE GARANTIE MOBILE ===== */
   .guarantee-banner {
-    /* on annule le flex desktop */
     display:block;
-    justify-content:unset;
-    flex-wrap:unset;
-
-    /* style visuel local */
+    padding:1.25rem 1rem 1.5rem;
     border-radius:12px;
-    padding:1rem 1rem 1.25rem;
+    max-width:600px;
+    width:calc(100% - 2rem);
+    margin:2rem auto 0 auto;
     position:relative;
     overflow:hidden;
   }
@@ -1114,63 +1134,33 @@ body.nav-open .main-nav {
     z-index:2;
     max-width:480px;
     width:100%;
-    margin:0 auto 1rem auto; /* centre le bloc texte */
-    color:var(--text-primary);
+    margin:0 auto 1rem auto;
+    text-align:left;
   }
 
-  .g-badge {
-    display:inline-block;
-    font-size:.7rem;
-    font-weight:500;
-    padding:.4rem .6rem;
-    border-radius:var(--radius-sm);
-    background:rgba(255,255,255,0.07);
-    border:1px solid rgba(255,255,255,0.1);
-    color:var(--text-primary);
-    margin-bottom:.5rem;
-  }
-
-  .g-title {
-    font-size:1rem;
-    font-weight:600;
-    line-height:1.3;
-    margin:0 0 .5rem 0;
-    color:var(--text-primary);
-  }
-
-  .g-desc {
-    font-size:.85rem;
-    line-height:1.4;
-    color:var(--text-dim);
-    margin:0;
-  }
-
-  /* CONTENEUR GLOBAL CTA */
   .g-right {
     position:relative;
     z-index:2;
     width:100%;
-    margin:0 auto;
-    /* plus de padding latéral ici */
-    padding:0 0 1rem 0;
+    margin:0;
     display:block;
   }
 
-  /* WRAPPER QUI FIXE LA LARGEUR ET LES MARGES VISUELLES */
   .g-right-inner {
-    display:grid;
+    display:flex;
+    flex-direction:column;
     gap:.75rem;
 
     max-width:480px;
     width:100%;
-    margin:0 auto;
 
-    /* coussin interne gauche/droite = bord visuel identique */
-    padding:0 1rem 0;
+    /* le point clé : padding égal gauche/droite */
+    padding:0 1rem;
     box-sizing:border-box;
+
+    margin:0 auto;
   }
 
-  /* BOUTONS FULL WIDTH DU WRAPPER (donc symétriques) */
   .g-right-inner .btn,
   .g-right-inner .btn-wide {
     width:100%;
