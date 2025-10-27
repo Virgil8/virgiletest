@@ -1154,20 +1154,18 @@ body.nav-open .main-nav {
 }
 
 .g-right {
-  position:relative;
-  z-index:2;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.75rem;
 
-  /* pile les boutons */
-  display:grid;
-  gap:.75rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 1rem;
 
-  /* largeur contrôlée et centrée */
-  width:100%;
-  max-width:480px;
-  margin:0 auto;
-
-  /* on enlève le padding horizontal forcé ici */
-  padding:0 0 1rem;
+  /* petit ajustement optique vers la gauche */
+  transform: translateX(-4px);
 }
 
 .g-right .btn,
