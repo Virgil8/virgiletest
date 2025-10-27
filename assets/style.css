@@ -1103,12 +1103,19 @@ body.nav-open .main-nav {
   flex-direction:column;
   gap:1rem;
 }
-.guarantee-banner::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)60%);
-  mix-blend-mode:screen;
+.guarantee-banner {
+  margin-top:2rem;
+  border-radius:var(--radius-lg);
+  background:var(--bg-card);
+  border:1px solid var(--border-card);
+  box-shadow:var(--shadow-card);
+  padding:1rem 1rem 1.25rem; /* <-- au lieu de juste padding:1rem; */
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
 }
 
 .g-left {
@@ -1146,25 +1153,21 @@ body.nav-open .main-nav {
   margin-bottom:0.5rem;
 }
 
-/* BOUTONS */
 .g-right {
   position:relative;
   z-index:2;
 
-  /* on supprime le min-width:220px rigide */
-  min-width:0;
+  /* pile les boutons */
+  display:grid;
+  gap:.75rem;
 
-  /* bloc centré et limité */
+  /* largeur contrôlée et centrée */
   width:100%;
   max-width:480px;
   margin:0 auto;
 
-  /* pile les deux boutons */
-  display:grid;
-  gap:.75rem;
-
-  /* petit coussin latéral pour que les boutons ne collent pas trop aux bords */
-  padding:0 1rem 1rem;
+  /* on enlève le padding horizontal forcé ici */
+  padding:0 0 1rem;
 }
 
 .g-right .btn,
