@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="64" fill="url(#g)"/>
+  <path d="M128 336L208 176H256L176 336H128Z" fill="black" fill-opacity="0.8"/>
+  <path d="M352 176L272 336H224L304 176H352Z" fill="black" fill-opacity="0.8"/>
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 96) rotate(45) scale(512)">
+      <stop stop-color="#6B6BFF"/>
+      <stop offset="0.5" stop-color="#00E0FF"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+</svg>

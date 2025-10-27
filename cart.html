@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Panier — LYNX//TECH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <script defer src="assets/app.js"></script>
+</head>
+<body class="theme-dark">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="LYNX TECH" class="logo"/>
+      <span class="brand-text">LYNX<span class="accent">//</span>TECH</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="product.html" class="nav-link">Produit</a>
+      <a href="index.html#support" class="nav-link">Support</a>
+      <a href="index.html#about" class="nav-link">À propos</a>
+    </nav>
+
+    <div class="header-cta-group">
+      <a class="cart-btn active" href="cart.html" aria-label="Panier">
+        <span class="cart-icon-svg" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M3 4h2l2.5 12.5c.1.6.7 1.1 1.3 1.1h8.4c.6 0 1.2-.5 1.3-1.1L20 8H6"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="20" r="1" fill="currentColor"/>
+            <circle cx="16" cy="20" r="1" fill="currentColor"/>
+          </svg>
+          <span class="cart-count" id="cartCountCart">1</span>
+        </span>
+        <span class="cart-label">Panier</span>
+      </a>
+
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="cart-page container">
+  <h1 class="cart-title">Votre panier</h1>
+
+  <section class="cart-layout">
+    <!-- Liste produits -->
+    <div class="cart-items card-glow">
+      <div class="cart-item">
+        <img src="assets/product-hero.jpg" alt="LYNX CORE" class="cart-thumb"/>
+
+        <div class="cart-details">
+          <div class="cart-line-1">
+            <span class="cart-product-name">LYNX//CORE</span>
+            <button class="remove-btn">Retirer</button>
+          </div>
+          <div class="cart-line-2">
+            <span class="cart-meta">CPU 14c / RTX Pro / 64 Go RAM / 2 To NVMe</span>
+          </div>
+
+          <div class="cart-line-3">
+            <div class="qty-control">
+              <button class="qty-btn">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <div class="line-price">2 499 € HT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-footnote">
+        Garantie 3 ans incluse. Livraison express offerte en Europe.
+      </div>
+    </div>
+
+    <!-- Résumé -->
+    <aside class="cart-summary">
+      <div class="summary-card">
+        <h2 class="summary-title">Résumé</h2>
+
+        <div class="summary-row">
+          <span>Sous-total (HT)</span>
+          <span>2 499 €</span>
+        </div>
+
+        <div class="summary-row">
+          <span>TVA (20%)</span>
+          <span>499,80 €</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Livraison</span>
+          <span>Offerte</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Total TTC</span>
+          <span>2 998,80 €</span>
+        </div>
+
+        <button class="btn btn-primary btn-wide checkout-btn">Valider la commande</button>
+        <p class="checkout-hint">Paiement sécurisé • CB / virement / 3x sans frais</p>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-line">
+          <span class="trust-emoji">🔒</span> Paiement chiffré
+        </div>
+        <div class="trust-line">
+          <span class="trust-emoji">🚚</span> Expédition 24h
+        </div>
+        <div class="trust-line">
+          <span class="trust-emoji">💬</span> Support humain
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand-row">
+      <img src="assets/logo.svg" class="logo small" alt="LYNX TECH"/>
+      <span class="brand-text">LYNX<span class="accent">//</span>TECH</span>
+    </div>
+    <p class="footer-note">Besoin d’aide pour finaliser ? On est là.</p>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 LYNX//TECH — Tous droits réservés.</p>
+    <p class="legal-links">
+      <a href="#!">CGV</a> ·
+      <a href="#!">Confidentialité</a> ·
+      <a href="#!">Cookies</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
