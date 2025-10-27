@@ -889,7 +889,38 @@ body.nav-open { overflow:hidden; }
   pointer-events:none;
   opacity:.3;
 }
+/* état quand le menu mobile est ouvert */
+body.nav-open {
+  overflow: hidden;
+}
+body.nav-open .site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10000;
+  background: #000; /* header devient noir plein pendant le menu */
+  border-bottom: none;
+  backdrop-filter: none;
+}
+body.nav-open .header-inner {
+  justify-content: flex-start;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 1.25rem 0;
+  gap: 1rem;
+}
 
+/* quand nav est ouverte, on masque le panier et on évite l'empilement chelou */
+body.nav-open .cart-btn,
+body.nav-open .brand {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* les liens du menu en mode ouvert auront priorité visuelle */
+body.nav-open .main-nav {
+  transform: translateX(0) !important;
+}
 @media (max-width:900px){
 
   /* ===== GRID STACK: tout en colonne ===== */
