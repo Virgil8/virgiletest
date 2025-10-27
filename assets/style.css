@@ -1107,6 +1107,9 @@ body.nav-open .main-nav {
     gap:1rem;
     padding:1rem;
     min-width:0;
+      .guarantee-banner {
+    border-radius: 12px;
+    overflow: hidden; /* très important : ça fait que les coins des boutons respectent le radius global */
   }
   .g-badge {
     font-size:.7rem;
@@ -1121,21 +1124,22 @@ body.nav-open .main-nav {
     line-height:1.4;
     margin-bottom:1rem;
   }
-  /* Alignement parfait des boutons "Ajouter au panier" / "Voir le panier" dans la bannière garantie */
-  .g-right {
+   .g-right {
     width: 100%;
+    min-width: 0;
     display: grid;
-    gap: .75rem;           /* espace vertical entre les deux boutons */
+    gap: .75rem;
+    padding: 0 1rem 1rem;   /* <<< new : même marge latérale que le texte + air en bas */
   }
 
   .g-right .btn,
   .g-right .btn-wide {
-    width: 100%;           /* le bouton prend toute la largeur de la carte */
+    width: 100%;
     max-width: 100%;
-    min-width: 0;          /* on annule le min-width:200px qui cassait l'alignement */
+    min-width: 0;
     justify-content: center;
+    border-radius: 12px;    /* on garde des coins doux pour pas avoir l’effet plaque carrée qui “saigne” */
   }
-
   /* ===== PANIER MOBILE ===== */
   .cart-layout {
     gap:1.25rem;
