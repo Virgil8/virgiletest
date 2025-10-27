@@ -11,15 +11,17 @@
 </head>
 <body class="theme-dark">
   <!-- HEADER / NAV -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
+
+      <!-- BRAND -->
       <a class="brand" href="index.html">
         <img src="assets/logo.svg" alt="LYNX TECH" class="logo" />
         <span class="brand-text">LYNX<span class="accent">//</span>TECH</span>
       </a>
 
       <!-- MENU NAV OVERLAY -->
-      <nav class="main-nav" id="mainNav">
+      <nav class="main-nav" id="mainNav" role="navigation" aria-label="Navigation principale">
         <a href="index.html" class="nav-link active">Accueil</a>
         <a href="product.html" class="nav-link">Produit</a>
         <a href="#support" class="nav-link">Support</a>
@@ -41,7 +43,13 @@
           <span class="cart-label">Panier</span>
         </a>
 
-        <button class="burger" id="burgerBtn" aria-label="Menu">
+        <button
+          class="burger"
+          id="burgerBtn"
+          aria-label="Ouvrir le menu"
+          aria-controls="mainNav"
+          aria-expanded="false"
+        >
           <span></span><span></span><span></span>
         </button>
       </div>
