@@ -571,23 +571,27 @@ body.nav-open { overflow:hidden; }
    GUARANTEE BANNER (desktop)
    ============================ */
 .guarantee-banner {
-  margin-top:2rem;
   border-radius:14px;
   background:var(--bg-card);
   border:1px solid var(--border-card);
   box-shadow:var(--shadow-card);
-
-  /* pleine largeur du container produit */
-  width:100%;
   padding:2rem;
 
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
+  /* clé : même largeur horizontale que .product-specs,
+     donc juste width:100% et on compte sur .container parent
+     => elle part exactement du bord gauche des specs
+     et va jusqu'au bord droit du bloc "Pourquoi LYNX//TECH ?" */
+  width:100%;
+
+  /* on passe en grid 2 colonnes comme le dessus */
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,320px);
   gap:2rem;
+
   position:relative;
   overflow:hidden;
 }
+
 .guarantee-banner::before {
   content:"";
   position:absolute;
@@ -595,13 +599,14 @@ body.nav-open { overflow:hidden; }
   background:radial-gradient(circle at 0% 0%,rgba(93,255,137,0.18)0%,rgba(0,0,0,0)70%);
   mix-blend-mode:screen;
 }
+
 .g-left {
   position:relative;
   z-index:2;
-  flex:1 1 auto;
-  max-width:800px;
   color:var(--text-primary);
+  max-width:100%;
 }
+
 .g-badge {
   display:inline-block;
   font-size:.8rem;
@@ -613,6 +618,7 @@ body.nav-open { overflow:hidden; }
   color:var(--text-primary);
   margin-bottom:.6rem;
 }
+
 .g-title {
   font-size:1.15rem;
   font-weight:600;
@@ -626,14 +632,15 @@ body.nav-open { overflow:hidden; }
   line-height:1.4;
   margin:0 0 1rem 0;
 }
+
 .g-right {
   position:relative;
   z-index:2;
-  flex:0 0 320px;
-  min-width:220px;
   display:flex;
   justify-content:flex-start;
+  align-items:flex-start;
 }
+
 .g-right-inner {
   display:flex;
   flex-direction:column;
@@ -641,6 +648,7 @@ body.nav-open { overflow:hidden; }
   width:100%;
   max-width:320px;
 }
+
 .g-right-inner .btn,
 .g-right-inner .btn-wide {
   width:100%;
