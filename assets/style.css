@@ -1100,39 +1100,37 @@ body.nav-open .main-nav {
     gap:.5rem;
   }
 
-  /* BANNIÈRE GARANTIE — version mobile centrée propre */
+  /* BANNIÈRE GARANTIE — mobile */
   .guarantee-banner {
     display: grid;
-    /* 1 seule colonne, on empile le texte puis les boutons */
     grid-template-columns: 1fr;
     gap: 1rem;
 
-    /* style visuel de la carte */
     border-radius: 12px;
     overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     box-shadow: var(--shadow-card);
 
-    /* on contrôle la largeur max du contenu interne comme la card produit */
     width: calc(100% - 2rem);
     max-width: 600px;
     margin: 2rem auto 0 auto;
+
+    /* ATTENTION : ce padding définit la “colonne” de gauche */
     padding: 1rem 1rem 1.25rem;
     position: relative;
   }
 
-  /* garde l'effet glow vert déjà présent (pseudo-élément ::before) */
-
   .g-left {
-    /* le texte + badge */
     display: grid;
     gap: .75rem;
-    max-width: 480px;
+    /* plus de max-width chelou ici */
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     z-index: 2;
+    /* aligne le texte à la même colonne que les boutons */
+    padding: 0;
   }
 
   .g-badge {
@@ -1145,6 +1143,7 @@ body.nav-open .main-nav {
     border: 1px solid rgba(255,255,255,0.1);
     color: var(--text-primary);
     margin-bottom: .25rem;
+    max-width: fit-content;
   }
 
   .g-title {
@@ -1162,21 +1161,24 @@ body.nav-open .main-nav {
     margin: 0;
   }
 
-    /* groupe des boutons dans la bannière garantie */
   .g-right {
     display: grid;
     gap: .75rem;
-    max-width: 480px;       /* largeur de contenu contrôlée */
+
+    /* clé : le bloc boutons suit exactement la même colonne gauche que le texte */
     width: 100%;
-    margin-left: auto;      /* <-- centre le bloc dans la carte */
-    margin-right: auto;     /* <-- centre le bloc dans la carte */
-    padding: 0 1rem 1rem;   /* garde un peu de marge interne pour respirer */
+    margin: 0;
+
+    /* même padding horizontal que .guarantee-banner, PAS de margin:auto */
+    padding: 0;
+
+    position: relative;
+    z-index: 2;
   }
 
   .g-right .btn,
   .g-right .btn-wide {
     width: 100%;
-    max-width: 100%;
     min-width: 0;
     justify-content: center;
     border-radius: 12px;
