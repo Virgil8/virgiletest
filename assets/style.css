@@ -1100,7 +1100,7 @@ body.nav-open .main-nav {
     gap:.5rem;
   }
 
-  /* BANNIÈRE GARANTIE — mobile */
+    /* BANNIÈRE GARANTIE — mobile FINAL */
   .guarantee-banner {
     display: grid;
     grid-template-columns: 1fr;
@@ -1116,7 +1116,7 @@ body.nav-open .main-nav {
     max-width: 600px;
     margin: 2rem auto 0 auto;
 
-    /* ATTENTION : ce padding définit la “colonne” de gauche */
+    /* cette marge interne = la “colonne” */
     padding: 1rem 1rem 1.25rem;
     position: relative;
   }
@@ -1124,12 +1124,12 @@ body.nav-open .main-nav {
   .g-left {
     display: grid;
     gap: .75rem;
-    /* plus de max-width chelou ici */
     width: 100%;
     margin: 0;
     position: relative;
     z-index: 2;
-    /* aligne le texte à la même colonne que les boutons */
+
+    /* PAS de padding supplémentaire ici */
     padding: 0;
   }
 
@@ -1164,22 +1164,18 @@ body.nav-open .main-nav {
   .g-right {
     display: grid;
     gap: .75rem;
-
-    /* clé : le bloc boutons suit exactement la même colonne gauche que le texte */
     width: 100%;
     margin: 0;
-
-    /* même padding horizontal que .guarantee-banner, PAS de margin:auto */
     padding: 0;
-
     position: relative;
     z-index: 2;
   }
 
+  /* >>> C'EST ÇA QUI FIXE L'ALIGNEMENT VISUEL <<< */
   .g-right .btn,
   .g-right .btn-wide {
-    width: 100%;
-    min-width: 0;
+    width: 100%;           /* le bouton prend 100% de la colonne texte */
+    min-width: 0 !important;/* écrase le min-width:200px de .btn-wide */
     justify-content: center;
     border-radius: 12px;
     margin: 0;
