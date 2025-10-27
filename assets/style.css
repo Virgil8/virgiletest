@@ -1162,15 +1162,15 @@ body.nav-open .main-nav {
     margin: 0;
   }
 
+    /* groupe des boutons dans la bannière garantie */
   .g-right {
-    /* les boutons */
     display: grid;
     gap: .75rem;
-    max-width: 480px;
+    max-width: 480px;       /* largeur de contenu contrôlée */
     width: 100%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
+    margin-left: auto;      /* <-- centre le bloc dans la carte */
+    margin-right: auto;     /* <-- centre le bloc dans la carte */
+    padding: 0 1rem 1rem;   /* garde un peu de marge interne pour respirer */
   }
 
   .g-right .btn,
@@ -1179,8 +1179,8 @@ body.nav-open .main-nav {
     max-width: 100%;
     min-width: 0;
     justify-content: center;
-    margin: 0;
     border-radius: 12px;
+    margin: 0;
   }
   /* ===== PANIER MOBILE ===== */
   .cart-layout {
